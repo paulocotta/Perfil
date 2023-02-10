@@ -6,7 +6,7 @@ Além de Python e Selenium, existem outras ferramentas importantes que podem ser
 
 Em resumo, Python, Selenium e shell scripts são ferramentas valiosas para os desenvolvedores e administradores de sistemas que desejam automatizar tarefas. Python é uma linguagem de programação poderosa e versátil que é amplamente utilizada para muitos fins, incluindo automação de testes. O Selenium é uma ferramenta importante para testar a funcionalidade de aplicativos web, enquanto shell scripts são uma maneira fácil e flexível de automatizar tarefas repetitivas. Juntos, eles oferecem uma ampla gama de possibilidades para automatizar tarefas e aumentar a eficiência.
 
-
+https://github.com/microsoft/WSL/blob/c67e3febbc4b12d0f6f0d20c418ac2a7164658e4/distributions/DistributionInfo.json
 
 {
     "Distributions": [
