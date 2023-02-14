@@ -1,0 +1,74 @@
+#!/bin/bash
+clear;
+(rm -rf 'curl_output.txt') >/dev/null 2>&1
+
+function RunTest(){
+	(curl --silent --fail --insecure --output '/dev/null' --write-out '%{http_code}\n' \
+	--max-time 5 --parallel --parallel-immediate \
+	--location 'https://falconi.com' \
+	--header 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36' \
+	--header 'cache-control: no-cache' \
+	--header 'pragma: no-cache' \
+	--compressed) >> curl_output.txt;
+}
+# for i in {1..100}; do { (RunTest &); } done
+# wait
+
+seq 3000 | xargs -n1 -P200 -I! curl \
+--silent \
+--fail \
+--head \
+--insecure \
+--write-out '%{http_code}\n' \
+--output '/dev/null' \
+--max-time 10 \
+--parallel \
+--parallel-immediate \
+--location 'https://falconi.com' \
+--header 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36' \
+--header 'cache-control: no-cache' \
+--header 'pragma: no-cache' \
+--compressed >> curl_output.txt;
+
+TOTAL_TESTE=100;
+TESTE_PARALELO=50;
+TIMEOUT=10;
+
+echo "TOTAL TESTE: ${TOTAL_TESTE}";
+echo "TESTE PARALELO: ${TESTE_PARALELO}";
+echo "TIMEOUT: ${TIMEOUT}";
+
+time seq ${TOTAL_TESTE} | xargs -n1 -P${TESTE_PARALELO} -I! curl \
+--silent \
+--fail \
+--head \
+--insecure \
+--write-out '%{http_code}\n' \
+--output '/dev/null' \
+--max-time ${TIMEOUT} \
+--parallel \
+--parallel-immediate \
+--request POST \
+--location 'https://api.mkst.app' \
+--header 'Authorization: Bearer a56f8a4c1420d8d6c5ee274f3ecfef59a43d5efd46b806057e68ff67a9bb5b8c' \
+--header 'cache-control: no-cache' \
+--header 'pragma: no-cache' \
+--compressed >> curl_output.txt;
+
+echo;
+echo "TOTAL: $(cat curl_output.txt | wc -l)";
+echo "OK: $(egrep -csi 200 'curl_output.txt')";
+echo "NOK: $(egrep -csvi 200 'curl_output.txt')";
+
+exit 0;
+# curl --location --request POST 'https://api.mkst.app' --header 'Authorization: Bearer a56f8a4c1420d8d6c5ee274f3ecfef59a43d5efd46b806057e68ff67a9bb5b8c'
+# seq 10 | xargs -n1 -P0 -I! echo !
+# xargs -I % -P 5 curl -I "https://linuxways.net" < <(printf '%s\n' {1..10})
+# -sfkILm10 --retry 3 --retry-delay 3 --head
+# -sfkZLm10 --parallel-immediate --retry 3 --retry-delay 3
+# seq 10 | xargs -n1 -P0 -I! (echo !)
+# seq 1 200 | xargs -n1 -P4 -I% echo %
+# seq 1 200 | xargs -n1 -P10  echo
+# seq 1 20 | xargs -n1 -P10 -I curl -sfkLm10 --retry 6 --retry-delay 10 'http://ip-api.com/csv'
+# seq 1 1000 | xargs -n1 -P100 -I% curl -sfkLm10 --retry 6 --retry-delay 10 'https://help.mtc.academy/groups.json'
+# seq 1 1000 | xargs -n1 -P100 -I% curl -sfkLm10 -X POST 'https://api.hub.falconi.com/api/Usuario/AutenticarAPI' -H 'Content-Type:
