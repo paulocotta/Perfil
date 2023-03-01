@@ -112,3 +112,6 @@ https://github.com/microsoft/WSL/blob/c67e3febbc4b12d0f6f0d20c418ac2a7164658e4/d
         }
     ]
 }
+
+
+headers_rest = {'Cache-Control':'no-cache', 'Pragma':'no-cache', 'User-Agent':'WhatsApp/2.20.201.2 A'}
