@@ -112,18 +112,3 @@ https://github.com/microsoft/WSL/blob/c67e3febbc4b12d0f6f0d20c418ac2a7164658e4/d
         }
     ]
 }
-def SendAlexa(texto=None, quick=False, rpt=1):
-	try:
-		access_token, secret_token = 'd58d47cd002fc8ddd0bf380e47400383', 'd1adc2bd8107f56ffbca0a8c3957f154'
-		url = f'https://api.voicemonkey.io/trigger?access_token={access_token}&secret_token={secret_token}&monkey=wsapp&announcement={texto}'
-		if ( quick ): url = f"https://api.voicemonkey.io/trigger?access_token={access_token}&secret_token={secret_token}&monkey=wsapp&announcement=<prosody rate='x-fast'>{texto}</prosody>"
-		for _ in range(rpt):
-			for _ in range(5):
-				try:
-					r=get(url, timeout=10, allow_redirects=True, headers=headers_rest)
-					assert(r.status_code==200)
-					break
-				except: pass
-			else: raise
-			if ( rpt > 1 ): time.sleep(len(texto)/4)
-	except: print('Failed: SendAlexa')
