@@ -7,9 +7,6 @@ http://192.168.0.66:7900/?autoconnect=1&resize=scale&password=secret&reconnect=1
 
 5 * * * *               root (docker rm -f $(docker ps --format "{{.Status}} {{.ID}}"|egrep -si 'hours'|awk '{if ($2 > 2) {print $4}}')) >/dev/null 2>&1
 
-02:23
-01:08
-04974973606
 
 
 const div2 = document.createElement('div'); div2.innerHTML = `<h1 style='background-color:pink;'>First element</h1>`; document.body.insertAdjacentElement('afterbegin', div2);
