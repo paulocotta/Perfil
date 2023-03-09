@@ -4,3 +4,9 @@ docker run -id -u0 --privileged --shm-size=2g --name "srv-selenium" -e "TZ=Ameri
 
 http://192.168.0.66:7900/?autoconnect=1&resize=scale&password=secret&reconnect=1&view_only=1&reconnect_delay=5000
 &view_clip=0
+
+5 * * * *               root (docker rm -f $(docker ps --format "{{.Status}} {{.ID}}"|egrep -si 'hours'|awk '{if ($2 > 2) {print $4}}')) >/dev/null 2>&1
+
+02:23
+01:08
+04974973606
