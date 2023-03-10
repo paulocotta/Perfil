@@ -20,3 +20,14 @@ document.body.appendChild(div1);
 const div2 = document.createElement('div');
 div2.innerHTML = `<span style='background-color: pink;'>First element</span>`;
 document.body.insertAdjacentElement('afterbegin', div2);
+
+
+
+def CriarPastaMes():
+	if ( os.path.isdir(local) == False ):
+		try:
+			os.makedirs(local)
+			os.makedirs(f'{local}/02_Nota_PDF')
+			os.makedirs(f'{local}/03_Nota_XML')
+		except: return
+	return True
