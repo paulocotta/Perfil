@@ -11,5 +11,4 @@ if ( debug ): os.system(f'(docker exec --privileged -t "{container}" ""/usr/bin/
 
 const div2 = document.createElement('div'); div2.innerHTML = `<h1 style='background-color:pink;'>First element</h1>`; document.body.insertAdjacentElement('afterbegin', div2);
 
-
 docker commit srv-selenium srv-selenium
