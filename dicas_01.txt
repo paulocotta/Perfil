@@ -31,3 +31,7 @@ def CriarPastaMes():
 			os.makedirs(f'{local}/03_Nota_XML')
 		except: return
 	return True
+
+		#visibility_of_element_located
+		#presence_of_element_located
+		#element_to_be_clickable
