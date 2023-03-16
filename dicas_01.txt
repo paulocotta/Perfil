@@ -34,3 +34,6 @@ return True
 #presence_of_element_located
 #element_to_be_clickable
 https://www.selenium.dev/pt-br/documentation/webdriver/waits/
+
+
+ie=list([ElementNotVisibleException,ElementNotSelectableException,NoSuchElementException])
