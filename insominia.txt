@@ -1,0 +1,22 @@
+curl 'https://hubert-app-boletoexpresso.azurewebsites.net/' \
+-H 'Accept: */*' \
+-H 'Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7' \
+-H 'Cache-Control: no-cache' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+-H 'Cookie: ASP.NET_SessionId=i4c14fduezu4c2lae3aoq4j4; ARRAffinity=36fad9a7aeb8e586c4db8ac3522cf0cbd355b2d1a1f8687ab84df40f57c89b8a; ARRAffinitySameSite=36fad9a7aeb8e586c4db8ac3522cf0cbd355b2d1a1f8687ab84df40f57c89b8a' \
+-H 'DNT: 1' \
+-H 'Origin: https://hubert-app-boletoexpresso.azurewebsites.net' \
+-H 'Pragma: no-cache' \
+-H 'Referer: https://hubert-app-boletoexpresso.azurewebsites.net/' \
+-H 'Sec-Fetch-Dest: empty' \
+-H 'Sec-Fetch-Mode: cors' \
+-H 'Sec-Fetch-Site: same-origin' \
+-H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36' \
+-H 'X-MicrosoftAjax: Delta=true' \
+-H 'X-Requested-With: XMLHttpRequest' \
+-H 'sec-ch-ua: "Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"' \
+-H 'sec-ch-ua-mobile: ?0' \
+-H 'sec-ch-ua-platform: "Windows"' \
+--data-raw 'ScriptManager1=UpdatePanel1%7CcmdContinuarCPF&hidUrl=hubert-app-boletoexpresso.azurewebsites.net&Tipo=optCPF&cboTipoPessoa=F&txtCpfCnpj=049%2C749%2C736-06&MaskCpfCnpj_ClientState=&txtCodigoRecibo=&hidPathBoleto=&__EVENTTARGET=&__EVENTARGUMENT=&__LASTFOCUS=&__VIEWSTATE=%2FwEPDwULLTIxMDEyNDc2NDMPZBYCAgMPZBYCAg0PZBYCZg9kFhACAQ9kFgQCAw8QDxYCHgdDaGVja2VkZ2RkZGQCBQ8PFgIeBFRleHRlZGQCAw8WAh4Fc3R5bGUFDmRpc3BsYXk6YmxvY2s7ZAIFDxYCHwIFDmRpc3BsYXk6YmxvY2s7FgoCBQ8QZGQWAWZkAgcPDxYCHwEFBENQRjpkZAIJDw8WAh4JTWF4TGVuZ3RoZmRkAgsPFiAeGUN1bHR1cmVEZWNpbWFsUGxhY2Vob2xkZXIFAS4eDklucHV0RGlyZWN0aW9uCymGAUFqYXhDb250cm9sVG9vbGtpdC5NYXNrZWRFZGl0SW5wdXREaXJlY3Rpb24sIEFqYXhDb250cm9sVG9vbGtpdCwgVmVyc2lvbj00LjEuNDA0MTIuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj0yOGYwMWIwZTg0YjZkNTNlAB4LQ3VsdHVyZU5hbWUFBWVuLVVTHhZDdWx0dXJlVGltZVBsYWNlaG9sZGVyBQE6HgpBY2NlcHRBbVBtaB4bQ3VsdHVyZVRob3VzYW5kc1BsYWNlaG9sZGVyBQEsHhRDbGVhck1hc2tPbkxvc3Rmb2N1c2geFkN1bHR1cmVBTVBNUGxhY2Vob2xkZXIFBUFNO1BNHgRNYXNrBQ45OTksOTk5LDk5OS05OR4MRGlzcGxheU1vbmV5CymCAUFqYXhDb250cm9sVG9vbGtpdC5NYXNrZWRFZGl0U2hvd1N5bWJvbCwgQWpheENvbnRyb2xUb29sa2l0LCBWZXJzaW9uPTQuMS40MDQxMi4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTI4ZjAxYjBlODRiNmQ1M2UAHhNPdmVycmlkZVBhZ2VDdWx0dXJlaB4WQ3VsdHVyZURhdGVQbGFjZWhvbGRlcgUBLx4RQ3VsdHVyZURhdGVGb3JtYXQFA01EWR4TTWVzc2FnZVZhbGlkYXRvclRpcGceDkFjY2VwdE5lZ2F0aXZlCysFAB4gQ3VsdHVyZUN1cnJlbmN5U3ltYm9sUGxhY2Vob2xkZXIFASRkAg0PDxYCHwFlZGQCBw8WAh8CBQ1kaXNwbGF5Om5vbmU7ZAIJDxYCHwIFDWRpc3BsYXk6bm9uZTsWAgIJDw8WAh8BZWRkAgsPFgIfAgUNZGlzcGxheTpub25lO2QCDQ8WAh8CBQ1kaXNwbGF5Om5vbmU7FgwCAQ8PFgQfAQUsQm9sZXRvcyBjb20gdmVuY2ltZW50byBzdXBlcmlvciBhIDE2LzAyLzIwMjMeB1Zpc2libGVoZGQCBQ88KwARAgEQFgAWABYADBQrAABkAhEPPCsAEQIBEBYBAgUWATwrAAUBABYCHxRoFgECBgwUKwAAZAITDw8WBB8BBTVBY29yZG9zIGNvbSB2ZW5jaW1lbnRvIGVudHJlICAxNy8wMy8yMDIzIGUgMTYvMDQvMjAyMx8UaGRkAhUPPCsAEQIBEBYAFgAWAAwUKwAAZAIhDw8WAh8BZWRkAhEPD2QWAh8CBQ1kaXNwbGF5Om5vbmU7ZBgEBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAwUMb3B0Q29tQm9sZXRvBQxvcHRDb21Cb2xldG8FBm9wdENQRgUQZ3JpZEJvbGV0b0Fjb3Jkbw9nZAURZ3JpZEJvbGV0b0xvY2FjYW8PZ2QFCmdyaWRCb2xldG8PZ2RYt5qAO5EuAoC5WUV2cUkja2t7gqRLyYvr3PC8XqRDeQ%3D%3D&__VIEWSTATEGENERATOR=CA0B0334&__EVENTVALIDATION=%2FwEdAA%2BgEzlVb15jLW%2BVAuQYNmcnUDDFfE1X%2Fmz2eJzpDd854QXbVUnPoaDKT4s1YBJ0OprSqru2tYhkQ4ElTsmAG%2FOXGMgyRaMTqgbQD2%2FbEjvNswGQFJulUNNfp%2FUMiVHdyOd2Yt5qjTvoReesvF5wS22Btvxq0CTG%2FShFWeEUj8YfKofnKLPwbg7WM21EoUXtNHnM91hX9CTRT2dwOLhd099Cpe508kU4dN%2FTleZ%2FAuettkXwHMemMyXhYGYLDkis3evfRkXMXvyfLRb%2Bt2IIvUTnzvH1wjs8hh%2B63ayRvI8CWTv7XOQF7s9Hsx2F4OonQ8B6ZJxfz%2Bk6W%2FDiD33edxk3H4pvzTCFbIdyDiMZno2qRg%3D%3D&__ASYNCPOST=true&cmdContinuarCPF=Continuar' \
+--compressed
