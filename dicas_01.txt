@@ -37,3 +37,21 @@ https://www.selenium.dev/pt-br/documentation/webdriver/waits/
 
 
 ie=list([ElementNotVisibleException,ElementNotSelectableException,NoSuchElementException])
+
+
+
+
+docker run -id -u0 --privileged --shm-size=2g --name "srv-financeiro" \
+-e "TZ=America/Sao_Paulo" \
+-e "DEBIAN_FRONTEND=noninteractive" \
+-e "DEBCONF_NONINTERACTIVE_SEEN=true" \
+-e "SE_VNC_NO_PASSWORD=1" \
+-e "SE_NODE_MAX_SESSIONS=1" \
+-e "SE_START_NO_VNC=true" \
+-e "SE_START_XVFB=true" \
+-e "SE_START_VNC=true" \
+-p 4444:4444 -p 5900:5900 -p 7900:7900 \
+"selenium/standalone-chrome:latest"; sleep 2; \
+docker stop srv-financeiro; sleep 2; \
+docker start srv-financeiro; sleep 4; \
+docker exec --privileged -t "srv-financeiro" ""/usr/bin/fbsetroot -solid black""
