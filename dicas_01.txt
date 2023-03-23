@@ -55,3 +55,7 @@ docker run -id -u0 --privileged --shm-size=2g --name "srv-financeiro" \
 docker stop srv-financeiro; sleep 2; \
 docker start srv-financeiro; sleep 4; \
 docker exec --privileged -t "srv-financeiro" ""/usr/bin/fbsetroot -solid black""
+
+
+
+https://appdevtools.com/url-parser-query-string-splitter
