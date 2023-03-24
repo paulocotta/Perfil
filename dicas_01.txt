@@ -59,3 +59,6 @@ docker exec --privileged -t "srv-financeiro" ""/usr/bin/fbsetroot -solid black""
 
 
 https://appdevtools.com/url-parser-query-string-splitter
+
+
+https://id.itau.com.br/as/2URiOCmkknbVWPgyeh2KytdaahGZdSb5/resume/as/authorization.ping
