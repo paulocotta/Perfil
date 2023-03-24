@@ -55,3 +55,6 @@ docker exec --privileged -t "srv-financeiro" ""/usr/bin/fbsetroot -solid black""
 https://appdevtools.com/url-parser-query-string-splitter
 allow-insecure-localhost
 ignore-certificate-errors
+
+
+headless=new
