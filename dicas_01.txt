@@ -58,3 +58,5 @@ ignore-certificate-errors
 
 
 headless=new
+
+https://www.selenium.dev/documentation/grid/configuration/cli_options/#docker
