@@ -60,4 +60,25 @@ options.add_argument(f"--proxy-server=http://{PROXY_USER}:{PROXY_PASS}@{PROXY_HO
 driver = webdriver.Chrome(options=options)
 
 
+from selenium import webdriver
+
+# Definir as credenciais do servidor proxy
+proxy_username = 'user'
+proxy_password = 'pass'
+
+# Configurar o servidor proxy com as credenciais
+proxies = {'http': f'http://{proxy_username}:{proxy_password}@<proxy_server_address>:<proxy_port>',
+           'https': f'https://{proxy_username}:{proxy_password}@<proxy_server_address>:<proxy_port>'}
+
+# Criar uma instância do navegador
+options = webdriver.ChromeOptions()
+options.add_argument('--proxy-server=http://<proxy_server_address>:<proxy_port>')
+options.add_argument('--ignore-certificate-errors')
+driver = webdriver.Chrome(options=options)
+
+# Iniciar uma sessão do navegador com o servidor proxy configurado
+driver.get('https://www.google.com/')
+
+
+
 "proxy-server=http://john:password123@127.0.0.1:8080",
