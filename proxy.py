@@ -81,4 +81,33 @@ driver.get('https://www.google.com/')
 
 
 
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+# Configurar as informações do servidor proxy
+proxy_server_address = '<proxy_server_address>'
+proxy_port = '<proxy_port>'
+proxy_username = '<proxy_username>'
+proxy_password = '<proxy_password>'
+
+# Criar uma instância do navegador
+driver = webdriver.Chrome()
+
+# Abrir uma página qualquer para forçar a janela de autenticação do proxy aparecer
+driver.get('https://www.google.com')
+
+# Enviar as credenciais do servidor proxy para os campos correspondentes na janela de autenticação
+alert = driver.switch_to.alert
+alert.send_keys(proxy_username)
+alert.send_keys(Keys.TAB)
+alert.send_keys(proxy_password)
+alert.accept()
+
+# Configurar o servidor proxy com as credenciais
+proxy = f'{proxy_username}:{proxy_password}@{proxy_server_address}:{proxy_port}'
+driver.execute_script(f"chrome.proxy.settings.set({{'value': {{'mode': 'fixed_servers', 'rules': {{'singleProxy': {{'scheme': 'http', 'host': '{proxy_server_address}', 'port': {proxy_port}}}}, 'bypassList': []}}, 'scope': 'regular'}}, function() {{}});")
+
+
+
 "proxy-server=http://john:password123@127.0.0.1:8080",
