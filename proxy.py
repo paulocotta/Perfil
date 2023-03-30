@@ -58,3 +58,6 @@ options.add_argument(f"--proxy-server=http://{PROXY_USER}:{PROXY_PASS}@{PROXY_HO
 
 # Inicialização do driver do Chrome com as configurações do proxy
 driver = webdriver.Chrome(options=options)
+
+
+"proxy-server=http://john:password123@127.0.0.1:8080",
