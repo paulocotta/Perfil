@@ -111,3 +111,12 @@ driver.execute_script(f"chrome.proxy.settings.set({{'value': {{'mode': 'fixed_se
 
 
 "proxy-server=http://john:password123@127.0.0.1:8080",
+
+
+
+docker run -d \
+  -e http_proxy=http://<username>:<password>@<proxy_host>:<proxy_port> \
+  -e https_proxy=http://<username>:<password>@<proxy_host>:<proxy_port> \
+  -p 8080:80 \
+  meu-container
+
