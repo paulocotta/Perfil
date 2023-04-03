@@ -66,3 +66,4 @@ https://www.selenium.dev/documentation/grid/configuration/cli_options/#docker
 
 "user-data-dir=/home/seluser/.config/google-chrome",
 if ( ctn == 'srv-selenium' ): cmd=str(f'{cmd} docker cp --quiet "/mnt/Data/01_Dropbox/RotinasSrv/global/pkg/.config/" "{ctn}:/home/seluser/";')
+cmd=str(f'{cmd} docker cp --quiet "/mnt/Data/01_Dropbox/RotinasSrv/global/pkg/ubuntu-light.png" "{ctn}:/usr/share/images/fluxbox/ubuntu-light.png";')
