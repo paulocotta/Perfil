@@ -119,4 +119,9 @@ docker run -d \
   -e https_proxy=http://<username>:<password>@<proxy_host>:<proxy_port> \
   -p 8080:80 \
   meu-container
+                            
+                            
+                            
+                            
+                            ie=list([ElementNotVisibleException,ElementNotSelectableException,NoSuchElementException,WebDriverException,TimeoutException,StaleElementReferenceException])
 
