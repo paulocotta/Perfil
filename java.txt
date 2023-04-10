@@ -1,0 +1,171 @@
+#:HAPPY PATH
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(cpfValue, Keys.ENTER);
+WebElement passwordInput = driver.findElement(By.xpath("//input[@id='password']"));
+passwordInput.sendKeys(passwordValue, Keys.ENTER);
+
+#:INVALID CPF
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(invalidCpfValue, Keys.ENTER);
+
+#:NONEXISTENT CPF
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(cpfValue, Keys.ENTER);
+WebElement errorText = driver.findElement(By.xpath("//span[contains(text(),'CPF inválido. Por favor, tente outra vez')]"));
+
+#:LAYOUT CPF
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(layoutCpfValue);
+
+#:LAYOUT SENHA
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(cpfValue, Keys.ENTER);
+WebElement passwordInput = driver.findElement(By.xpath("//input[@id='password']"));
+passwordInput.sendKeys(passwordValue);
+
+#:INVALID PASSWORD
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(cpfValue, Keys.ENTER);
+WebElement passwordInput = driver.findElement(By.xpath("//input[@id='password']"));
+passwordInput.sendKeys(passwordValue, Keys.ENTER);
+WebElement errorText = driver.findElement(By.xpath("//span[contains(text(),'Senha expirada ou inválida. Por favor, tente outra vez')]"));
+
+#:EXPIRED PASSWORD - PRECISA MUDAR A CONFIGURAÇÃO NO PINGDIRECTORY PARA REPRODUZIR ESSE CENÁRIO - CONFIGURAÇÃO PARA EXPIRAR SENHA
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(cpfValue, Keys.ENTER);
+WebElement passwordInput = driver.findElement(By.xpath("//input[@id='password']"));
+passwordInput.sendKeys(passwordValue, Keys.ENTER);
+WebElement errorText = driver.findElement(By.xpath("//span[contains(text(),'Senha expirada ou inválida. Por favor, tente outra vez')]"));
+
+#:PWD VERIFY CODE
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(cpfValue, Keys.ENTER);
+WebElement passwordInput = driver.findElement(By.xpath("//input[@id='password']"));
+passwordInput.sendKeys(passwordValue, Keys.ENTER);
+WebElement errorText = driver.findElement(By.xpath("//span[contains(text(),'Senha expirada ou inválida. Por favor, tente outra vez')]"));
+
+#:TRY RESET PWD
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(cpfValue, Keys.ENTER);
+WebElement forgotPasswordBtn = driver.findElement(By.xpath("//button[@id='forgotPasswordBtn']"));
+forgotPasswordBtn.sendKeys(Keys.ENTER);
+WebElement backButton = driver.findElement(By.xpath("//button[contains(text(),'voltar ao portal 360i')]"));
+backButton.sendKeys(Keys.ENTER);
+WebElement loadingBundle = driver.findElement(By.xpath("//div[@class='loadingBundle']"));
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+
+#:LAYOUT PROBLEMS TO ACCESS
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(cpfValue, Keys.ENTER);
+WebElement forgotPasswordBtn = driver.findElement(By.xpath("//button[@id='forgotPasswordBtn']"));
+forgotPasswordBtn.sendKeys(Keys.ENTER);
+WebElement h1Element = driver.findElement(By.xpath("//h1[contains(text(),'problemas para acessar?')]"));
+WebElement h2Element = driver.findElement(By.xpath("//h2[contains(text(),'vamos encaminhar um e-mail para você poder redefinir sua senha')]"));
+WebElement p1Element = driver.findElement(By.xpath("//p[contains(text(),'***********')]"));
+WebElement p2Element = driver.findElement(By.xpath("//p[contains(text(),'em caso de e-mail incorreto, entre em contato com a equipe responsável pelo seu credenciamento')]"));
+WebElement confirmBtn = driver.findElement(By.xpath("//button[contains(text(),'confirmar')]"));
+WebElement backButton = driver.findElement(By.xpath("//button[contains(text(),' voltar ao portal 360i')]"));
+
+#:INVALID CODE
+String tpwd = RandomStringUtils.randomAlphanumeric(8); //GERAR UM TOKEN INVALIDO DE 8 CARACTERES
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(cpfValue, Keys.ENTER);
+WebElement forgotPasswordBtn = driver.findElement(By.xpath("//button[@id='forgotPasswordBtn']"));
+forgotPasswordBtn.sendKeys(Keys.ENTER);
+WebElement confirmBtn = driver.findElement(By.xpath("//button[contains(text(),'confirmar')]"));
+confirmBtn.sendKeys(Keys.ENTER);
+WebElement currentPassword = driver.findElement(By.xpath("//input[@name='currentPasword']"));
+currentPassword.sendKeys("abcd123456");
+WebElement newPassword = driver.findElement(By.xpath("//input[@name='newPassword']"));
+newPassword.sendKeys(tpwd);
+WebElement confirmNewPassword = driver.findElement(By.xpath("//input[@name='confirmNewPassword']"));
+confirmNewPassword.sendKeys(tpwd, Keys.ENTER);
+WebElement verificationError = driver.findElement(By.xpath("//span[contains(text(),'Código de verificação incorreto')]"));
+
+#:MIN PWD
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(cpfValue, Keys.ENTER);
+WebElement forgotPasswordBtn = driver.findElement(By.xpath("//button[@id='forgotPasswordBtn']"));
+forgotPasswordBtn.sendKeys(Keys.ENTER);
+WebElement confirmBtn = driver.findElement(By.xpath("//button[contains(text(),'confirmar')]"));
+confirmBtn.sendKeys(Keys.ENTER);
+WebElement currentPassword = driver.findElement(By.xpath("//input[@name='currentPasword']"));
+currentPassword.sendKeys("abcd123456");
+WebElement newPassword = driver.findElement(By.xpath("//input[@name='newPassword']"));
+newPassword.sendKeys('123456');
+WebElement confirmNewPassword = driver.findElement(By.xpath("//input[@name='confirmNewPassword']"));
+confirmNewPassword.sendKeys('123456', Keys.ENTER);
+WebElement passwordError = driver.findElement(By.xpath("//div[contains(text(),'Senha não atende os requisitos mínimos')]"));
+
+#:LAYOUT RESET PWD
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(cpfValue, Keys.ENTER);
+WebElement forgotPasswordBtn = driver.findElement(By.xpath("//button[@id='forgotPasswordBtn']"));
+forgotPasswordBtn.sendKeys(Keys.ENTER);
+WebElement confirmBtn = driver.findElement(By.xpath("//button[contains(text(),'confirmar')]"));
+confirmBtn.sendKeys(Keys.ENTER);
+WebElement emailSentText = driver.findElement(By.xpath("//h1[contains(text(),'e-mail enviado!')]"));
+WebElement newPasswordInstruction = driver.findElement(By.xpath("//p[contains(text(),'Acabamos de enviar uma senha provisória para seu email. Com ela, você poderá criar uma nova senha pessoal')]"));
+WebElement spamWarning = driver.findElement(By.xpath("//p[contains(text(),'Verifique sua caixa de spam e lixo eletrônico')]"));
+WebElement passwordRulesTitle = driver.findElement(By.xpath("//h2[contains(text(),'sua senha deve atender essas regras')]"));
+WebElement upperCaseRule = driver.findElement(By.xpath("//li[contains(text(),'Letra maiúscula')]"));
+WebElement lowerCaseRule = driver.findElement(By.xpath("//li[contains(text(),'Letra minúscula')]"));
+WebElement numbersRule = driver.findElement(By.xpath("//li[contains(text(),'Números')]"));
+WebElement lengthRule = driver.findElement(By.xpath("//li[contains(text(),'De 6 a 8 caracteres')]"));
+WebElement nonSequentialRule = driver.findElement(By.xpath("//li[contains(text(),'Não repetir ou utilizar caracteres ou números sequenciais')]"));
+WebElement differentPasswordRule = driver.findElement(By.xpath("//li[contains(text(),'A nova senha deve ser diferente das senhas anteriores')]"));
+
+#:DIFFERENT PWD
+tpwd = "7u@" + RandomStringUtils.randomAlphanumeric(14).substring(0, 8);
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(cpfValue, Keys.ENTER);
+WebElement forgotPasswordBtn = driver.findElement(By.xpath("//button[@id='forgotPasswordBtn']"));
+forgotPasswordBtn.sendKeys(Keys.ENTER);
+WebElement confirmBtn = driver.findElement(By.xpath("//button[contains(text(),'confirmar')]"));
+confirmBtn.sendKeys(Keys.ENTER);
+WebElement currentPassword = driver.findElement(By.xpath("//input[@name='currentPasword']"));
+currentPassword.sendKeys("abcd123456");
+WebElement newPassword = driver.findElement(By.xpath("//input[@name='newPassword']"));
+newPassword.sendKeys(tpwd);
+WebElement confirmNewPassword = driver.findElement(By.xpath("//input[@name='confirmNewPassword']"));
+confirmNewPassword.sendKeys(new StringBuilder(tpwd).reverse().toString(), Keys.ENTER);
+WebElement passwordError = driver.findElement(By.xpath("//div[contains(text(),'Senhas são diferentes')]"));
+
+#:EQUAL PWD
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(cpfValue, Keys.ENTER);
+WebElement forgotPasswordBtn = driver.findElement(By.xpath("//button[@id='forgotPasswordBtn']"));
+forgotPasswordBtn.sendKeys(Keys.ENTER);
+WebElement confirmBtn = driver.findElement(By.xpath("//button[contains(text(),'confirmar')]"));
+confirmBtn.sendKeys(Keys.ENTER);
+WebElement currentPassword = driver.findElement(By.xpath("//input[@name='currentPasword']"));
+currentPassword.sendKeys(passwordValue);
+WebElement newPassword = driver.findElement(By.xpath("//input[@name='newPassword']"));
+newPassword.sendKeys(passwordValue);
+WebElement confirmNewPassword = driver.findElement(By.xpath("//input[@name='confirmNewPassword']"));
+confirmNewPassword.sendKeys(passwordValue, Keys.ENTER);
+WebElement passwordError = driver.findElement(By.xpath("//span[contains(text(),'A senha não atende os requisitos mínimos')]"));
+
+
+#:FULL RESET PWD
+String tpwd = "7u@" + RandomStringUtils.randomAlphanumeric(14).substring(0, 8);
+WebElement cpfInput = driver.findElement(By.xpath("//input[@id='cpf']"));
+cpfInput.sendKeys(cpfValue, Keys.ENTER);
+WebElement forgotPasswordBtn = driver.findElement(By.xpath("//button[@id='forgotPasswordBtn']"));
+forgotPasswordBtn.sendKeys(Keys.ENTER);
+WebElement confirmBtn = driver.findElement(By.xpath("//button[contains(text(),'confirmar')]"));
+confirmBtn.sendKeys(Keys.ENTER);
+WebElement spamWarning = driver.findElement(By.xpath("//p[contains(text(),'Verifique sua caixa de spam e lixo eletrônico')]"));
+WebElement currentPassword = driver.findElement(By.xpath("//input[@name='currentPasword']"));
+currentPassword.sendKeys(tpwd);
+WebElement newPassword = driver.findElement(By.xpath("//input[@name='newPassword']"));
+newPassword.sendKeys(tpwd);
+WebElement confirmNewPassword = driver.findElement(By.xpath("//input[@name='confirmNewPassword']"));
+confirmNewPassword.sendKeys(tpwd, Keys.ENTER);
+WebElement verificationError = driver.findElement(By.xpath("//span[contains(text(),'Código de verificação incorreto')]"));
+WebElement currentPasswordAgain = driver.findElement(By.xpath("//input[@name='currentPasword']"));
+String tpwd = //UTILIZAR A REQUEST DO INSOMINIA PARA OBTER O CODIGO
+WebElement newPasswordAgain = driver.findElement(By.xpath("//input[@name='newPassword']"));
+newPasswordAgain.sendKeys(tpwd);
+WebElement confirmNewPasswordAgain = driver.findElement(By.xpath("//input[@name='confirmNewPassword']"));
+confirmNewPasswordAgain.sendKeys(tpwd, Keys.ENTER);
