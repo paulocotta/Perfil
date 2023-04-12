@@ -123,5 +123,11 @@ docker run -d \
                             
                             
                             
-                            ie=list([ElementNotVisibleException,ElementNotSelectableException,NoSuchElementException,WebDriverException,TimeoutException,StaleElementReferenceException])
+ie=list([ElementNotVisibleException,ElementNotSelectableException,NoSuchElementException,WebDriverException,TimeoutException,StaleElementReferenceException])
+
+def PsKill(ctn:str, driver=None) -> None:
+	try: driver.quit()
+	except: pass
+	try: [os.system(f'(docker exec --privileged --tty --user=root "{ctn}" ""pkill -fi "{app}""") >/dev/null 2>&1') for app in list(['chrome','webpki','chromedriver','xdotool'])]
+	except: raise Exception('Failed: PsKill')
 
