@@ -31,3 +31,7 @@ def setVerifyTgm():
 
 
 ___return(redirect(r'https://google.com', code=302))
+
+
+
+curl -sfkLm10 --retry 3 --retry-delay 3
