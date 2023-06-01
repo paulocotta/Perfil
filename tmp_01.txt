@@ -1,20 +1,20 @@
 import logging
 import re
 
-class RegexFilter(logging.Filter):
-    def __init__(self, pattern):
-        self.pattern = re.compile(pattern)
+# Padrão Regex
+pattern = re.compile('meu padrão aqui')
 
-    def filter(self, record):
-        return re.match(self.pattern, record.getMessage()) is not None
-
-# Aplica o filtro regex para todos os logs
-logging.basicConfig(level=logging.DEBUG)
+# Configuração do logging
 logger = logging.getLogger()
 handler = logging.StreamHandler()
-filter = RegexFilter('meu padrão aqui')
-handler.addFilter(filter)
+handler.setLevel(logging.DEBUG)
+
+# Aplicação do filtro regex usando uma função anônima
+handler.addFilter(lambda record: re.match(pattern, record.getMessage()) is not None)
+
+# Adicionando o handler ao logger
 logger.addHandler(handler)
+logger.setLevel(logging.DEBUG)
 
 # Agora, apenas mensagens que correspondem ao padrão regex serão registradas
 logger.debug('Esta mensagem será ignorada')
