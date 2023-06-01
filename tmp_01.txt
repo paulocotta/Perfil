@@ -1,101 +1,21 @@
 import logging
 import re
 
-# Função lambda para filtrar registros usando regex
-regex_filter = lambda record: re.search(r'.*error.*', record.getMessage())
+class RegexFilter(logging.Filter):
+    def __init__(self, pattern):
+        self.pattern = re.compile(pattern)
 
-# Criar um logger
-logger = logging.getLogger('meu_logger')
-logger.setLevel(logging.DEBUG)
+    def filter(self, record):
+        return re.match(self.pattern, record.getMessage()) is not None
 
-# Criar um handler de console
-console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.DEBUG)
+# Aplica o filtro regex para todos os logs
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+filter = RegexFilter('meu padrão aqui')
+handler.addFilter(filter)
+logger.addHandler(handler)
 
-# Criar um filtro usando a função lambda
-filter_obj = logging.Filter()
-filter_obj.filter = regex_filter
-
-# Adicionar o filtro ao handler de console
-console_handler.addFilter(filter_obj)
-
-# Adicionar o handler ao logger
-logger.addHandler(console_handler)
-
-# Exemplos de mensagens de log
-logger.debug('Isso é um debug')
-logger.info('Isso é uma informação')
-logger.warning('Isso é um aviso')
-logger.error('Isso é um erro')
-
-
-
-import logging
-import re
-
-# Função lambda para filtrar registros usando regex
-regex_filter = lambda record: re.search(r'.*error.*', record.getMessage())
-
-# Configurar o logging básico
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(levelname)s - %(message)s',
-                    handlers=[logging.StreamHandler()],
-                    filters=[regex_filter])
-
-# Exemplos de mensagens de log
-logging.debug('Isso é um debug')
-logging.info('Isso é uma informação')
-logging.warning('Isso é um aviso')
-logging.error('Isso é um erro')
-
-
-
-import logging
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler('app.log')
-    ],
-    filters=[
-        logging.Filter('my_module'),
-        logging.Filter('my_other_module')
-    ]
-)
-
-logger = logging.getLogger(__name__)
-
-logger.debug('This message will be filtered out')
-logger.error('This message will be logged')
-
-
-
-
-import logging
-import re
-
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s %(levelname)s %(message)s',
-                    filters=[lambda record: re.match('.*error.*', record.getMessage(), re.IGNORECASE)])
-
-logging.debug('Esta é uma mensagem de debug.')
-logging.info('Esta é uma mensagem de informação.')
-logging.warning('Esta é uma mensagem de aviso.')
-logging.error('Esta é uma mensagem de erro.')
-
-
-
-
-import logging
-import re
-
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s %(levelname)s %(message)s',
-                    filters=[lambda record: not re.match('.*error.*', record.getMessage(), re.IGNORECASE)])
-
-logging.debug('Esta é uma mensagem de debug.')
-logging.info('Esta é uma mensagem de informação.')
-logging.warning('Esta é uma mensagem de aviso.')
-logging.error('Esta é uma mensagem de erro.')
+# Agora, apenas mensagens que correspondem ao padrão regex serão registradas
+logger.debug('Esta mensagem será ignorada')
+logger.debug('Esta mensagem corresponde ao meu padrão aqui')
