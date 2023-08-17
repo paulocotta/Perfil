@@ -35,3 +35,22 @@ function TesteSX(){
 }
 
 TesteSX;
+
+
+def DelGif():
+	try:
+		records=DB.Exec("CALL `ssssssssssssss`(JSON_OBJECT('act','cleanup'));")
+		assert(records)
+		for val in records[0]:
+			for _ in range(5):
+				try:
+					r=get(val['link'], timeout=20, allow_redirects=True, headers=headers_rest)
+					assert(r.status_code==200)
+				except: time.sleep(5)
+				else: break
+			else:
+				print('Delete:', val['id'], val['link'], r.status_code)
+				SendTgm(message=f"DelGif: {val['id']}, {val['link']}, {r.status_code}")
+		else: pass
+	except Exception as e: SetLogging('DelGif', 40)
+
