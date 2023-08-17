@@ -1,3 +1,5 @@
+parabens para o marco e pedir o endereço
+
 function TesteSX(){
 	for i in {1..5}; do {
 		TMP=$(curl --retry 10 --retry-delay 3 --max-time 10 --fail --insecure --silent --location --compressed \
